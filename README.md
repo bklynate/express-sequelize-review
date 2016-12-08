@@ -11,9 +11,9 @@
 	* You should see JSON objects as a result of these routes
 
 
-### How to make POST requests in Postman (with the version I have):
+### How to make POST requests in Postman:
 - Start in the `Builder` tab
-- Choose the appropriate verb from the drop-down (I'm going with `POST`)
+- Choose the appropriate verb from the drop-down (`POST`)
 - Where it says `Enter request URL` type `localhost:3000/api/trains`
 - Below this, select `Body`
 	- We are only parsing if it is `urlencoded` or `json`, so we need to choose one of these
