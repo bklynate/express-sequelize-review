@@ -56,6 +56,8 @@ const Car = db.define('car', {
                 // Here we are filtering our query so that we only get colors that match the one being sent in -- http://docs.sequelizejs.com/en/v3/docs/querying/#where
                 where: { color: color }
             });
+
+            //Though these are promises, do NOT catch errors in here. We are going to want to catch errors when we run in it in express so that we can make sure to send 1 ** appropriate ** response to each request
         }
     },
     instanceMethods: {

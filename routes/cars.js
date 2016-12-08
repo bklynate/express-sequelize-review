@@ -12,6 +12,16 @@ router.get('/', function (req, res, next) {
         .catch(next);
 });
 
+// route parameters are variables and noted as such by the preceding `:` -- http://expressjs.com/en/4x/api.html#req.param
+router.get('/color/:color', function (req, res, next) {
+    // Here we are use a custom class method
+    Car.findByColor(req.params.color)
+        .then(arrayOfCars => res.send(arrayOfCars))
+        // We do NOT want to catch errors and log them in our `/models/index.js` file because we still need to send a response, and we log the errors in our error handling middleware anyways
+        // Use catch here to call `next` rather than in your custom class method in `/models/index.js`
+        .catch(next);
+})
+
 function makeError (status, message) {
     const error = new Error(message);
     error.status = status;
